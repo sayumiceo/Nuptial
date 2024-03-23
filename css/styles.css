@@ -114,7 +114,7 @@ body, html {
   }
   
   .features-section img {
-    max-width: 100%; /* Make sure images are responsive */
+    max-width: 100%; 
     height: auto;
     border-radius: 15px;
 
@@ -170,7 +170,6 @@ body, html {
     color: #666;
 }
 
-/* Add responsiveness */
 @media (max-width: 768px) {
     .blog-entry {
         width: 80%; /* Adjust size for smaller screens */
