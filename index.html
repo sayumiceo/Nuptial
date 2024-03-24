@@ -41,6 +41,19 @@
     </div>
 </div>
 
+<div class="story-section">
+  <div class="content-wrapper">
+      <div class="story-image">
+          <img src="img/Bezos_samplephoto.webp" alt="Person holding a shoe">
+      </div>
+      <div class="story-details">
+          <h2>Jeff Bezos trusts us.</h2>
+          <h1>“We Wanted to Create the Unexpected”</h1>
+          <p>Before their divorce, Bezos's 16% stake in Amazon was valued at $150 billion. Following the divorce and subsequent financial decisions, including significant sales of Amazon stock to fund his Blue Origin space venture, Bezos's share in the company decreased to approximately 10%.</p>
+      </div>
+  </div>
+</div>
+
 <!-- Features Section -->
 <div class="features-section">
     <div class="feature">
@@ -59,12 +72,41 @@
       <p>Create your agreement to start collaborating and discuss with AI tools.</p>
     </div>
   </div>
+
+
+    <div class="career-section">
+      <h2>Approved by top family law attorneys</h2>
+      <div class="opportunities-grid">
+        <div class="opportunity big">
+          <h3>Live and Work Anywhere</h3>
+        </div>
+        <div class="opportunity">
+          <h3>Open Positions</h3>
+          <p>124 Open Positions</p>
+        </div>
+        <div class="opportunity big">
+          <h3>Departments</h3>
+          <p>17 Departments</p>
+        </div>
+        <div class="opportunity image">
+          <img src="img/lawyer_sample02.jpeg" alt="Image description">
+        </div>
+        <div class="opportunity image">
+          <img src="img/lawyer_sample.jpeg" alt="Image description">
+        </div>
+        <div class="opportunity">
+          <h3>Open Positions</h3>
+          <p>124 Open Positions</p>
+        </div>
+      </div>
+    </div>    
   
   <div class="blog-section">
     <h2>Startup Founders and Asset Holders Choose Us</h2>
     <p>Listen to our customers.</p>
     
-    <div class="blog-carousel">
+    <div class="blog-carousel-wrapper">
+      <div class="blog-carousel">
         <!-- Blog Entry -->
         <div class="blog-entry">
             <img src="img/blog01.jpeg" alt="Article Title">
@@ -89,9 +131,31 @@
           <h3>Our story.</h3>
           <p>April 1, 2024</p>
         </div>
-
+        <div class="blog-entry">
+          <img src="img/blog01.jpeg" alt="Article Title">
+          <h3>Our experience.</h3>
+          <p>April 1, 2024</p>
       </div>
-    
+
+      <div class="blog-entry">
+        <img src="img/blog02.jpeg" alt="Article Title">
+        <h3>Our story.</h3>
+        <p>April 1, 2024</p>
+      </div>
+
+      <div class="blog-entry">
+        <img src="img/blog03.jpeg" alt="Article Title">
+        <h3>Our experience.</h3>
+        <p>April 1, 2024</p>
+      </div>
+
+      <div class="blog-entry">
+        <img src="img/blog04.jpeg" alt="Article Title">
+        <h3>Our story.</h3>
+        <p>April 1, 2024</p>
+      </div>
+      </div>
+    </div>
 </div>
 
 
@@ -177,6 +241,33 @@
 </footer>
 
 <script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const blogEntries = document.querySelectorAll('.blog-carousel .blog-entry');
+    
+    // 全てのblog-entry要素の合計幅を計算します
+    let totalWidth = 0;
+    blogEntries.forEach(entry => {
+        const style = window.getComputedStyle(entry);
+        const margin = parseFloat(style.marginRight);
+        totalWidth += entry.offsetWidth + margin;
+    });
+
+    const blogCarousel = document.querySelector('.blog-carousel');
+
+    blogCarousel.animate([
+      // key frames
+      { transform: 'translateX(0px)' },
+      { transform: 'translateX(-' + totalWidth/2+'px)' }
+    ], {
+      // sync options
+      duration: 30000,
+      iterations: Infinity
+    });
+});
+
+
 
 </script>
 

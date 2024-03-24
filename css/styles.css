@@ -101,10 +101,56 @@ body, html {
     border: 2px solid #333;
 }
 
+
+.story-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 40px 0;
+  background-color: #000; /* Adjust the color to match your design */
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 80px 40px;
+}
+
+.story-image img {
+  width: 600px; /* Adjust as necessary */
+  height: 400px; /* Adjust as necessary */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.story-details {
+  flex-grow: 1;
+  padding-left: 60px; /* Adjust as necessary */
+}
+
+.story-details h2 {
+  font-size: 24px; /* Adjust as necessary */
+  color: #555; /* Adjust as necessary */
+}
+
+.story-details h1 {
+  font-size: 36px; /* Adjust as necessary */
+  margin: 20px 0; /* Adjust as necessary */
+  color: #fff; /* Adjust as necessary */
+}
+
+.story-details p {
+  font-size: 18px; /* Adjust as necessary */
+  color: #555; /* Adjust as necessary */
+}
+
+
+
 .features-section {
     display: flex;
     justify-content: space-around;
     padding: 50px;
+    margin: 80px 0;
     background-color: #fff; 
     text-align: center;
   }
@@ -119,7 +165,60 @@ body, html {
     border-radius: 15px;
 
   }
-      
+
+  .career-section {
+    background-color: #fff; /* Adjust the color to match your design */
+    padding: 150px;
+    margin: 50px 0;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+    grid-gap: 20px;
+  }
+  
+  .opportunity {
+    background: #e0ad2c;
+    color:#fff;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    grid-row: span 1; /* Make the opportunity span two rows */
+  }
+  
+  .opportunity.big {
+    grid-row: span 3; /* Make the opportunity span two rows */
+  }
+
+  .opportunity.full-width {
+    grid-column: 1 / -1; /* Make the opportunity span all columns */
+  }
+  
+  .opportunity.image {
+    padding: 0;
+    border-radius: 8px;
+    object-fit: cover;
+    grid-row: span 2; /* Make the opportunity span two rows */
+  }
+  
+  .opportunity.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    grid-row: span 2; /* Make the opportunity span two rows */
+  }
+
+  
 
 .blog-section {
     background-color: #f5edf8;
@@ -137,16 +236,32 @@ body, html {
     margin-bottom: 30px;
 }
 
+.blog-carousel-wrapper {
+  overflow: hidden;
+  padding: 20px;
+}
+
 .blog-carousel {
     display: flex;
-    overflow-x: auto; /* Allows horizontal scrolling for smaller screens */
 }
 
 .blog-entry {
+    flex-shrink: 0; /* Prevents the entries from shrinking */
     margin-right: 16px;
-    flex: none; /* Prevents entries from stretching in flex container */
     width: 450px; 
+    transition: transform 0.3s ease;
 }
+
+.blog-carousel:hover .blog-entry {
+  transform: scale(1); /* Reset the scale */
+  animation-play-state: paused; /* Pause the animation */
+}
+
+.blog-carousel .blog-entry:hover {
+  transform: scale(1.05); /* Scale up the hovered entry */
+  z-index: 1; /* Ensure it's above other entries */
+}
+
 
 .blog-entry:last-child {
     margin-right: 0;
@@ -168,20 +283,6 @@ body, html {
 .blog-entry p {
     font-size: 16px;
     color: #666;
-}
-
-@media (max-width: 768px) {
-    .blog-entry {
-        width: 80%; /* Adjust size for smaller screens */
-    }
-
-    .cta-section h2 {
-      font-size: 28px; /* Smaller font size on smaller screens */
-  }
-
-  .cta-section button {
-      padding: 8px 20px; /* Slightly less padding on smaller screens */
-  }
 }
 
 
@@ -237,7 +338,7 @@ body, html {
 
 .cta-section h2 {
   font-size: 36px; 
-  margin-bottom: 20px; /* Space between text and button */
+  margin-bottom: 40px; /* Space between text and button */
 }
 
 .cta-section button {
@@ -382,3 +483,47 @@ body, html {
   white-space: nowrap;
 }
 
+
+
+@media (max-width: 768px) {
+
+.content-wrapper {
+flex-direction: column;
+}
+
+.story-image img {
+max-width: 100%;
+margin-bottom: 20px;
+}
+
+
+.opportunities-grid {
+  grid-template-columns: 1fr;
+}
+
+.opportunity.big,
+.opportunity.full-width {
+  grid-column: auto;
+}
+
+
+.blog-entry {
+    width: 80%; 
+    margin-right: 8px; 
+
+}
+
+.cta-section h2 {
+  font-size: 28px; /* Smaller font size on smaller screens */
+}
+
+.cta-section button {
+    padding: 8px 20px; /* Slightly less padding on smaller screens */
+}
+
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-var(--total-width-of-entries)); }
+}
