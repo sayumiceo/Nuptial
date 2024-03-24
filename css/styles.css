@@ -195,6 +195,7 @@ body, html {
   }
   
   .opportunity.big {
+    background: #ffbc3e;
     grid-row: span 3; /* Make the opportunity span two rows */
   }
 
@@ -318,6 +319,11 @@ body, html {
   font-size: 24px; /* Arrow size */
 }
       
+.answer {
+  display: none;
+  padding: 10px;
+  margin-top: 10px;
+}
    
 .lp-footer {
   background-color: #000;

@@ -162,14 +162,17 @@
   <!-- FAQ Section -->
   <div class="faq-section">
     <h2>FAQ</h2>
-    <div class="faq">
+    <div class="faq" onclick="toggleAnswer('answer1')">
       <h3>What is NuptialAgree?</h3>
+      <p id="answer1" class="answer">NuptialAgree is a platform that allows you to create prenuptial and postnuptial agreements with ease.</p>
     </div>
-    <div class="faq">
+    <div class="faq" onclick="toggleAnswer('answer2')">
       <h3>I've already married. Is it too late to create an agreement?</h3>
+      <p id="answer2" class="answer">It is not too late. You can create a postnuptial agreement at any time during your marriage.</p>
     </div>
-    <div class="faq">
+    <div class="faq" onclick="toggleAnswer('answer3')">
       <h3>Why would I need a prenuptial agreement?</h3>
+      <p id="answer3" class="answer">A prenuptial agreement can help protect your assets and clarify financial arrangements in the event of a marriage breakdown.</p>
     </div>
   </div>
 
@@ -268,6 +271,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+function toggleAnswer(id) {
+  var answer = document.getElementById(id);
+  if (answer.style.display === 'block') {
+    answer.style.display = 'none';
+  } else {
+    answer.style.display = 'block';
+  }
+}
 
 </script>
 
