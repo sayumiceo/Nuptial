@@ -178,10 +178,11 @@
 
 
   <div class="cta-section">
-    <h2>The best way to design your life together.</h2>
-    <button onclick="location.href='#';">Sign up for NuptialAgree</button>
+    <div class="cta-content">
+      <h2>The best way to design your life together.</h2>
+      <button onclick="location.href='#';">Sign up for NuptialAgree</button>
+    </div>
   </div>
-
   
 
   <!-- footer -->
@@ -279,6 +280,23 @@ function toggleAnswer(id) {
     answer.style.display = 'block';
   }
 }
+
+function revealOnScroll() {
+  var elements = document.querySelectorAll('.feature, .cta-content');
+  var windowHeight = window.innerHeight;
+
+  elements.forEach(function(element) {
+    var elementTop = element.getBoundingClientRect().top;
+    var elementVisible = 50;
+
+    if (elementTop < windowHeight - elementVisible) {
+      element.classList.add('animate-on-scroll');
+    } 
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+document.addEventListener('DOMContentLoaded', revealOnScroll);
 
 </script>
 

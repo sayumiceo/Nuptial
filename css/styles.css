@@ -117,31 +117,31 @@ body, html {
 }
 
 .story-image img {
-  width: 600px; /* Adjust as necessary */
-  height: 400px; /* Adjust as necessary */
+  width: 600px; 
+  height: 400px; 
   object-fit: cover;
   border-radius: 20px;
 }
 
 .story-details {
   flex-grow: 1;
-  padding-left: 60px; /* Adjust as necessary */
+  padding-left: 60px; 
 }
 
 .story-details h2 {
-  font-size: 24px; /* Adjust as necessary */
-  color: #555; /* Adjust as necessary */
+  font-size: 24px; 
+  color: #555; 
 }
 
 .story-details h1 {
-  font-size: 36px; /* Adjust as necessary */
-  margin: 20px 0; /* Adjust as necessary */
-  color: #fff; /* Adjust as necessary */
+  font-size: 36px; 
+  margin: 20px 0; 
+  color: #fff; 
 }
 
 .story-details p {
-  font-size: 18px; /* Adjust as necessary */
-  color: #555; /* Adjust as necessary */
+  font-size: 18px; 
+  color: #555; 
 }
 
 
@@ -157,14 +157,24 @@ body, html {
   
   .features-section .feature {
     width: 30%; 
+    opacity: 0; /* Start as invisible */
+
   }
-  
+
+
   .features-section img {
     max-width: 100%; 
     height: auto;
     border-radius: 15px;
-
   }
+  
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.5s ease-out forwards; 
+  }
+
+
 
   .career-section {
     background-color: #fff; /* Adjust the color to match your design */
@@ -341,6 +351,12 @@ body, html {
   text-align: center;
   padding: 120px 20px; 
 }
+
+.cta-content {
+  opacity: 0; 
+}
+
+
 
 .cta-section h2 {
   font-size: 36px; 
@@ -532,4 +548,15 @@ margin-bottom: 20px;
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-var(--total-width-of-entries)); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
